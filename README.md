@@ -14,3 +14,6 @@ The file for preprocessing and model building named "Stroke_Prediction.ipynb" is
 ## Integration
 Integration of model is done in python flask
 
+## HTML UI
+We have refered below link for building UI:-
+https://colorlib.com/wp/template/colorlib-regform-12/
