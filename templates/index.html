@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stroke Prediction</title>
+
+    <!-- Font Icon -->
+    
+    <link href="{{ url_for('static', filename='fonts/material-icon/css/material-design-iconic-font.min.css') }}" rel="stylesheet">
+
+    <!-- Main css -->
+   
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <form method="POST" class="appointment-form" id="appointment-form" action="/predict" roll="form">
+                <h2>Stroke Prediction</h2>
+                <div class="form-group-1">
+                    <input type="text" name="id" id="id" placeholder="Enter your ID" required />
+                   <select name="gender" id="gender" class="select-list" required>
+                    <option value="">-Select your Gender-</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    </select>
+
+                    <input type="text" name="age" id="age" placeholder="Enter your age" required />
+                    <select name="hypertension" id="hypertension" class="select-list" required>
+                    <option value="">-Do you have hypertension?-</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                    </select>
+
+                    <select name="heart_disease" id="heart_disease" class="select-list" required>
+                    <option value="">-Do you have heart disease?-</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                    </select>
+                    
+                    <select name="ever_married" id="ever_married" class="select-list" required>
+                    <option value="">-Are you married?-</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    </select>
+                    
+                    <select name="work_type" id="work_type" class="select-list" required>
+                    <option value="">-Occupation?-</option>
+                    <option value="Private">Private</option>
+                    <option value="Self-employed">Self-employed</option>
+                    <option value="Govt_job">Govt_job</option>
+                    <option value="Never_worked">Never_worked</option>
+                    <option value="children">children</option>
+                    </select>
+
+                    <select name="Residence_type" id="Residence_type" class="select-list" required>
+                    <option value="">-Residence type-</option>
+                    <option value="Rural">Rural</option>
+                    <option value="Urban">Urban</option>
+                    </select>
+
+
+                    <input type="text" name="avg_glucose_level" id="avg_glucose_level" placeholder="Enter your average glucose level" required />
+                    <input type="text" name="bmi" id="bmi" placeholder="Enter your BMI" required />
+
+                    <select name="smoking_status" id="smoking_status" class="select-list" required>
+                    <option value="">-Do you smoke?-</option>
+                    <option value="Unknown">Unknown</option>
+                    <option value="never smoked">never smoked</option>
+                    <option value="formerly smoked">formerly smoked</option>
+                    <option value="smokes">smokes</option>
+
+                    </select>
+                    
+                <div class="form-submit">
+                    <input type="submit" name="predict" id="predict" class="submit" value="Predict" />
+                </div>
+                <div class="section-title">
+
+                {% if "No" in status %}
+                <p style="color:darkgreen; font-size: 30px;">{{ status }}</p>
+                 {%else%}
+                <p style="color:darkred; font-size: 30px;">{{ status }}</p>
+                {%endif%}
+        
+           </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
